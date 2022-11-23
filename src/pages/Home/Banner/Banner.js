@@ -35,7 +35,7 @@ const Banner = () => {
                     <a href="#slide4" className="btn btn-circle">❯</a>
                 </div>
                 <div className="absolute  transform -translate-y-1/2 left-1/3 bottom-0">
-                    <h1 className='text-6xl font-bold text-slate-700'>Naked Bike</h1>
+                    <h1 className='text-6xl font-bold text-slate-700'>Naked Sports Bike</h1>
                 </div>
             </div>
            
