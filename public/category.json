@@ -1,0 +1,21 @@
+[
+    {
+        "category":"sports",
+        "name": "Sports Bike",
+        "discription": "Here is lot of sports bike and good condition.",
+        "img": "https://i.ibb.co/mBGrTW7/suzuki-gsx-r150-img-a2.jpg"
+    },
+    {
+        "category": "Cruiser",
+        "name": "Cruiser Bike",
+        "discription": "Here is lot of cruiser bike and good condition.",
+        "img": "https://i.ibb.co/ZmY32nX/cruiser.jpg"
+    },
+    {
+        "category":"naked",
+        "name": "Naked Bike",
+        "discription": "Here is lot of naked bike and good condition.",
+        "img": "https://i.ibb.co/Pc3TRj7/naked.jpg"
+    }
+	
+]

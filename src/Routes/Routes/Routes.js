@@ -1,9 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
+import AddProducts from "../../pages/AddProducts/AddProducts";
 import Blog from "../../pages/Blog/Blog";
 import Error from "../../pages/Error/Error";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/Login/Login";
+import SportsBike from "../../pages/Products/SportsBike/SportsBike";
 import SignUp from "../../pages/SignUp/SignUp";
 
 const router=createBrowserRouter([
@@ -14,6 +16,10 @@ const router=createBrowserRouter([
             {path:'/blog',element:<Blog></Blog>},
             {path:'/login',element:<Login></Login>},
             {path:'/signup',element:<SignUp></SignUp>},
+            {path:'/addproducts',element:<AddProducts></AddProducts>},
+            {path:'/sportsbike/:id',element:<SportsBike></SportsBike>,
+            loader:({params})=>fetch(`http://localhost:5000/productsCollection/${params.id}`)
+        },
         ]
     },
     { path: '/*', element: <Error></Error> },

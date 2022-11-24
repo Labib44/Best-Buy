@@ -19,10 +19,12 @@ const Navbar = () => {
 
         {user?.uid ?
             <>
+                <li><Link className='btn btn-ghost' to='/addproducts'>Add Products</Link></li>
                 <li><Link onClick={handleLogOut} className='btn btn-ghost' to='/'>Sign Out</Link></li>
             </>
             :
             <li><Link className='btn btn-ghost' to='/login'>Login</Link></li>
+            
         }
     </>
 

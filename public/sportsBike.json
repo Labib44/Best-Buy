@@ -1,0 +1,80 @@
+[
+	{
+		"category":"sports",
+		"price": 485,
+		"originalPrice": 885,
+		"picture": "https://i.ibb.co/mBGrTW7/suzuki-gsx-r150-img-a2.jpg",
+		"name": "Suzuki gsxr 150",
+		"location": "mirpur",
+		"usedTime": "6 month",
+		"Time": "11:10pm",
+		"date": "11/24/2022",
+        "sellerName": "Rero Alom",
+		"details": "Suzuki Gixxer dual disk corporator 10 bosor a pepar kora ase bike alhamdullia akdom fresh ase notun a moto ase kono porblem nai bike a aktk o kaj nai inshallah uttara brt number kora ase   digital number plate first party anytime name transfer possible bike dekhte hole uttara azampur kacabajar majar road aste hobe."
+	},
+	{
+		"category":"sports",
+		"price": 385,
+		"originalPrice": 585,
+		"picture": "https://i.ibb.co/FHQCMjM/yamaha-yzf-r15-v20.jpg",
+		"name": "Yamaha R15 v2 150",
+		"location": "mirpur",
+		"usedTime": "7 month",
+		"Time": "1:10pm",
+		"date": "1/24/2022",
+        "sellerName": "Morjina",
+		"details": "Yamaha R15 v2 150 dual disk corporator 10 bosor a pepar kora ase bike alhamdullia akdom fresh ase notun a moto ase kono porblem nai bike a aktk o kaj nai inshallah uttara brt number kora ase   digital number plate first party anytime name transfer possible bike dekhte hole uttara azampur kacabajar majar road aste hobe."
+	},
+	{
+		"category":"Cruiser",
+		"price": 500,
+		"originalPrice": 900,
+		"picture": "https://i.ibb.co/ZmY32nX/cruiser.jpg",
+		"name": "Cruiser 160",
+		"location": "Uttra",
+		"usedTime": "9 month",
+		"Time": "11:00pm",
+		"date": "11/14/2022",
+        "sellerName": "Salman Khan",
+		"details": "Cruiser 160 dual disk corporator 5 bosor a pepar kora ase bike alhamdullia akdom fresh ase notun a moto ase kono porblem nai bike a aktk o kaj nai inshallah uttara brt number kora ase   digital number plate first party anytime name transfer possible bike dekhte hole uttara azampur kacabajar majar road aste hobe."
+	},
+	{
+		"category":"Cruiser",
+		"price": 500,
+		"originalPrice": 900,
+		"picture": "https://i.ibb.co/FHQCMjM/yamaha-yzf-r15-v20.jpg",
+		"name": "Yamaha Sm1 160",
+		"location": "Uttra",
+		"usedTime": "9 month",
+		"Time": "11:10pm",
+		"date": "11/24/2022",
+        "sellerName": "Salman Khan",
+		"details": "Yamaha Sm1 160 dual disk corporator 5 bosor a pepar kora ase bike alhamdullia akdom fresh ase notun a moto ase kono porblem nai bike a aktk o kaj nai inshallah uttara brt number kora ase   digital number plate first party anytime name transfer possible bike dekhte hole uttara azampur kacabajar majar road aste hobe."
+	},
+	{
+		"category":"naked",
+		"price": 800,
+		"originalPrice": 1500,
+		"picture": "https://i.ibb.co/JB3hb02/naked2.jpg",
+		"name": "Yamaha Mt15 v4 150",
+		"location": "Azimpur",
+		"usedTime": "6 month",
+		"Time": "11:10pm",
+		"date": "11/24/2022",
+        "sellerName": "Shah Rukh Khan",
+		"details": "Yamaha R15 v4 150 2 bosor a pepar kora ase bike alhamdullia akdom fresh ase notun a moto ase kono porblem nai bike a aktk o kaj nai inshallah uttara brt number kora ase digital number plate first party anytime name transfer possible bike dekhte hole uttara azampur kacabajar majar road aste hobe."
+	},
+	{
+		"category":"naked",
+		"price": 800,
+		"originalPrice": 1500,
+		"picture": "https://i.ibb.co/Pc3TRj7/naked.jpg",
+		"name": "Yamaha R15 v4 150",
+		"location": "Azimpur",
+		"usedTime": "6 month",
+		"Time": "11:10pm",
+		"date": "11/24/2022",
+        "sellerName": "Shah Rukh Khan",
+		"details": "Yamaha R15 v4 150 2 bosor a pepar kora ase bike alhamdullia akdom fresh ase notun a moto ase kono porblem nai bike a aktk o kaj nai inshallah uttara brt number kora ase digital number plate first party anytime name transfer possible bike dekhte hole uttara azampur kacabajar majar road aste hobe."
+	}
+]
