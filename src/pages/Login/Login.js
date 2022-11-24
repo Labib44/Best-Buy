@@ -1,12 +1,15 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { signIn } = useContext(AuthContext);
+    const { signIn, googleLogin } = useContext(AuthContext);
     const [loginError,setLoginError]=useState('');
+    const googlProvider= new GoogleAuthProvider();
 
     const handleLogin = (data) => {
         // console.log(data);
@@ -16,11 +19,22 @@ const Login = () => {
         .then(result=>{
             const user=result.user;
             // console.log(user);
+            toast.success('Login Successfully')
         })
         .catch(error=> {
             console.log(error)
             setLoginError(error.message);
         })
+    }
+
+    const handleGoogleLogin=()=>{
+        googleLogin(googlProvider)
+        .then(result =>{
+            const user=result.user;
+            console.log(user)
+            
+        })
+        .catch(error=>console.error(error))
     }
     return (
         <div className='flex justify-center '>
@@ -58,7 +72,7 @@ const Login = () => {
 
                 </form>
                 <div className="divider">OR</div>
-                <button className="btn btn-outline w-full btn-primary m-3">Sign In with Google</button>
+                <button onClick={handleGoogleLogin} className="btn btn-outline w-full btn-primary m-3">Sign In with Google</button>
             </div>
         </div>
     );
