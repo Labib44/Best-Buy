@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SportsBikeCard = ({ spBike,setBike }) => {
-    console.log(spBike);
+    // console.log(spBike);
     const { _id, name, picture, details, location, originalPrice, sellerName, usedTime, price,date } = spBike;
     return (
         <div className="card w-96 bg-base-100 shadow-xl">

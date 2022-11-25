@@ -6,32 +6,32 @@ import { AuthContext } from '../../Context/AuthProvider';
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const {createUser, updateUser}=useContext(AuthContext);
-    const [signUpError, setSignUpError]=useState('');
-    const navigate=useNavigate();
+    const { createUser, updateUser } = useContext(AuthContext);
+    const [signUpError, setSignUpError] = useState('');
+    const navigate = useNavigate();
 
     const handleSignUp = (data) => {
         // console.log(data);
         setSignUpError('');
 
         createUser(data.email, data.password)
-        .then(result=>{
-            const user= result.user;
-            console.log(user);
-            const userInfo={
-                displayName:data.name
-            }
-            updateUser(userInfo)
-            .then(()=>{})
-            .catch(error=>console.log(error));
-            
-            navigate('/');
-            toast.success('User create Successfully');
-        })
-        .catch(error=> {
-            console.log(error)
-            setSignUpError(error.message)
-        });
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                const userInfo = {
+                    displayName: data.name
+                }
+                updateUser(userInfo)
+                    .then(() => { })
+                    .catch(error => console.log(error));
+
+                navigate('/');
+                toast.success('User create Successfully');
+            })
+            .catch(error => {
+                console.log(error)
+                setSignUpError(error.message)
+            });
     }
 
     return (
@@ -54,6 +54,11 @@ const SignUp = () => {
                         <input type="email" {...register("email", { required: 'Email is required' })} className="input input-primary input-bordered w-full" />
                         {errors.email && <p role="alert" className='text-red-600'>{errors.email?.message}</p>}
                     </div>
+                    <select name='option' className="select select-primary select-bordered w-full m-3" {...register("option", { required: 'Select is required' })}>
+                        <option disabled selected>Select your Option</option>
+                        <option value='buyer'>Buyer</option>
+                        <option value='seller'>Seller</option>
+                    </select>
 
                     <div className="form-control w-full m-3">
                         <label className="label">
