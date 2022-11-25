@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddProduct from "../../Dashboard/AddProduct/AddProduct";
+import AllUsers from "../../Dashboard/AllUsers/AllUsers";
 import Dashboard from "../../Dashboard/Dashboard/Dashboard";
 import MyBooking from "../../Dashboard/MyBooking/MyBooking";
 import DashboardLayout from "../../Layout/DashboardLayout";
@@ -11,6 +12,7 @@ import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/Login/Login";
 import SportsBike from "../../pages/Products/SportsBike/SportsBike";
 import SignUp from "../../pages/SignUp/SignUp";
+import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router=createBrowserRouter([
@@ -29,8 +31,9 @@ const router=createBrowserRouter([
     {
         path:'/dashboard',element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         children:[
-            {path:'/dashboard/dashboard',element:<Dashboard></Dashboard>},
-            {path:'/dashboard',element:<MyBooking></MyBooking>},
+            
+            {path:'/dashboard/dashboard',element:<MyBooking></MyBooking>},
+            {path:'/dashboard/users',element:<AdminRoute><AllUsers></AllUsers></AdminRoute>},
         ]
     },
     { path: '/*', element: <Error></Error> },
