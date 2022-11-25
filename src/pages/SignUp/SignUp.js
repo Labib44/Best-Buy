@@ -1,20 +1,29 @@
+import { data } from 'autoprefixer';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+import useToken from '../../Hook/useToken';
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, updateUser } = useContext(AuthContext);
     const [signUpError, setSignUpError] = useState('');
+    const [createUserEmail, setCreateUserEmail]=useState('');
+
+    const [token]=useToken(createUserEmail);
     const navigate = useNavigate();
+
+    if(token){
+        navigate('/');
+    }
 
     const handleSignUp = (data) => {
         // console.log(data);
         setSignUpError('');
 
-        createUser(data.email, data.password)
+        createUser(data.email, data.password, data.option)
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -22,16 +31,35 @@ const SignUp = () => {
                     displayName: data.name
                 }
                 updateUser(userInfo)
-                    .then(() => { })
+                    .then(() => {
+                        saveUser(data.name, data.email, data.option);
+                     })
                     .catch(error => console.log(error));
 
-                navigate('/');
+                
                 toast.success('User create Successfully');
             })
             .catch(error => {
                 console.log(error)
                 setSignUpError(error.message)
             });
+    }
+    // save user in database.
+    const saveUser=(name, email,option)=>{
+        const user={name, email,option}
+        fetch('http://localhost:5000/users',{
+            method:'POST',
+            headers:{
+                'content-type': 'application/json'
+            },
+            body:JSON.stringify(user)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            // console.log(data);
+            setCreateUserEmail(email);
+        });
+
     }
 
     return (
