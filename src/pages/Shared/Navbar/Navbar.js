@@ -19,7 +19,7 @@ const Navbar = () => {
 
         {user?.uid ?
             <>
-                <li><Link className='btn btn-ghost' to='/dashboard/addproduct'>Add Product</Link></li>
+                <li><Link className='btn btn-ghost' to='/dashboard/dashboard'>Dashboard</Link></li>
                 <li><Link onClick={handleLogOut} className='btn btn-ghost' to='/'>Sign Out</Link></li>
             </>
             :

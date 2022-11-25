@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SportsBikeCard = ({ spBike }) => {
+const SportsBikeCard = ({ spBike,setBike }) => {
     console.log(spBike);
     const { _id, name, picture, details, location, originalPrice, sellerName, usedTime, price,date } = spBike;
     return (
@@ -24,8 +24,8 @@ const SportsBikeCard = ({ spBike }) => {
                 </div>
                 <p>Details:{details}</p>
                 <div className="card-actions justify-end">
-                    <Link to='/' className="btn btn-primary">Buy Now</Link>
-                    
+                   
+                    <label onClick={()=>setBike(spBike)} htmlFor="booking-modal" className="btn btn-primary">Book Now</label>
                 </div>
             </div>
         </div>
