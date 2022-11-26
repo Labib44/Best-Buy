@@ -34,6 +34,7 @@ const router=createBrowserRouter([
             
             {path:'/dashboard/dashboard',element:<MyBooking></MyBooking>},
             {path:'/dashboard/users',element:<AdminRoute><AllUsers></AllUsers></AdminRoute>},
+            {path:'/dashboard/addproducts',element:<AdminRoute><AddProduct></AddProduct></AdminRoute>},
         ]
     },
     { path: '/*', element: <Error></Error> },
