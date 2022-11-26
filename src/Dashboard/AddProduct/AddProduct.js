@@ -1,12 +1,25 @@
+import { useQuery } from '@tanstack/react-query';
+import { data } from 'autoprefixer';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
 const AddProduct = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
+    const { data: categorys, isLoading } = useQuery({
+        queryKey: ['category'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/productCategory')
+            const data = await res.json();
+            return data;
+        }
+    })
 
-    const handleAddProduct=()=>{
-
+    const handleAddProduct = (data) => {
+        console.log(data);
+    }
+    if (isLoading) {
+        return <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-violet-400"></div>
     }
 
     return (
@@ -33,15 +46,15 @@ const AddProduct = () => {
                         <label className="label">
                             <span className="label-text">Select Your Category</span>
                         </label>
-                        {/* <select {...register("specialty", { required: 'Specialty is required' })} className="select select-primary select-bordered w-full ">
-                            <option disabled selected>Please select a Specialty</option>
+                        <select {...register("category", { required: 'Category is required' })} className="select select-primary select-bordered w-full ">
+                            <option disabled selected>Please select a Category</option>
                             {
-                                specialtys.map(specialty => <option
-                                    key={specialty._id}
-                                    value={specialty.name}
-                                >{specialty.name}</option>)
+                                categorys.map(category => <option
+                                    key={category._id}
+                                    value={category.category}
+                                >{category.category}</option>)
                             }
-                        </select> */}
+                        </select>
                     </div>
 
                     <div className="form-control w-full m-3">
