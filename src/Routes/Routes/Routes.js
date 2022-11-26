@@ -3,6 +3,7 @@ import AddProduct from "../../Dashboard/AddProduct/AddProduct";
 import AllUsers from "../../Dashboard/AllUsers/AllUsers";
 import Dashboard from "../../Dashboard/Dashboard/Dashboard";
 import MyBooking from "../../Dashboard/MyBooking/MyBooking";
+import Payment from "../../Dashboard/Payment/Payment";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import AddProducts from "../../pages/AddProducts/AddProducts";
@@ -11,6 +12,7 @@ import Error from "../../pages/Error/Error";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/Login/Login";
 import SportsBike from "../../pages/Products/SportsBike/SportsBike";
+import DisplayError from "../../pages/Shared/DisplayError/DisplayError";
 import SignUp from "../../pages/SignUp/SignUp";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -18,6 +20,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 const router=createBrowserRouter([
     {
         path:'/',element:<Main></Main>,
+        errorElement:<DisplayError></DisplayError>,
         children:[
             {path:'/',element:<Home> </Home>},
             {path:'/blog',element:<Blog></Blog>},
@@ -30,11 +33,15 @@ const router=createBrowserRouter([
     },
     {
         path:'/dashboard',element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        errorElement:<DisplayError></DisplayError>,
         children:[
             
             {path:'/dashboard/dashboard',element:<MyBooking></MyBooking>},
             {path:'/dashboard/users',element:<AdminRoute><AllUsers></AllUsers></AdminRoute>},
             {path:'/dashboard/addproducts',element:<AdminRoute><AddProduct></AddProduct></AdminRoute>},
+            {path:'/dashboard/payment/:id',element:<AdminRoute><Payment></Payment></AdminRoute>,
+            loader:({params})=>fetch(`http://localhost:5000/bookings/${params.id}`)
+        },
         ]
     },
     { path: '/*', element: <Error></Error> },

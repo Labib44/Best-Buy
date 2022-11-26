@@ -3,13 +3,15 @@ import { data } from 'autoprefixer';
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const AddProduct = () => {
     const {user}=useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const imgHostKey = process.env.REACT_APP_IMG;
-    console.log(imgHostKey);
+    // console.log(imgHostKey);
+    const navigate=useNavigate()
 
     const { data: categorys, isLoading } = useQuery({
         queryKey: ['category'],
@@ -64,6 +66,7 @@ const AddProduct = () => {
                     .then(result=>{
                         console.log(result);
                         toast.success('Product Added SuccessFull')
+                        navigate('/')
                     })
                 }
             })
