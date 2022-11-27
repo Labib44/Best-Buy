@@ -36,7 +36,7 @@ const MyBooking = () => {
                             <th>Location</th>
                             <th>Used Time</th>
                             {/* <th>Phone</th> */}
-                            {/* <th>Meeting</th> */}
+                            <th>Meeting</th>
                             <th>Price</th>
                             <th>Payment</th>
                         </tr>
@@ -50,14 +50,14 @@ const MyBooking = () => {
                         <td>{booking.location}</td>
                         <td>{booking.usedTime}</td>
                         {/* <td>{booking.phnNum}</td> */}
-                        {/* <td>{booking.meetLocation}</td> */}
+                        <td>{booking.meetLocation}</td>
                         <td>{booking.price}</td>
                         <td>
                             {
                                booking.price && !booking.paid && <Link to={`/dashboard/payment/${booking._id}`}><button className="btn btn-primary btn-xs">Pay</button></Link> 
                             }
                             {
-                                booking.price && booking.paid && <span className='text-primary'>Paid</span>
+                                booking.price && booking.paid && <span className='text-green-500 font-bold'>Paid</span>
                             }
                         </td>
                     </tr>)

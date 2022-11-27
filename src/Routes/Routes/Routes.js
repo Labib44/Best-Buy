@@ -39,7 +39,7 @@ const router=createBrowserRouter([
             {path:'/dashboard/dashboard',element:<MyBooking></MyBooking>},
             {path:'/dashboard/users',element:<AdminRoute><AllUsers></AllUsers></AdminRoute>},
             {path:'/dashboard/addproducts',element:<AdminRoute><AddProduct></AddProduct></AdminRoute>},
-            {path:'/dashboard/payment/:id',element:<AdminRoute><Payment></Payment></AdminRoute>,
+            {path:'/dashboard/payment/:id',element:<Payment></Payment>,
             loader:({params})=>fetch(`http://localhost:5000/bookings/${params.id}`)
         },
         ]
