@@ -30,7 +30,7 @@ const BookingModal = ({ bike, setBike }) => {
         }
         // console.log('Modal booking',booking)
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://best-buy-server-three.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

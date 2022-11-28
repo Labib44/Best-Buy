@@ -22,7 +22,7 @@ const WishModal = ({ wish, setWish }) => {
             picture
         }
 
-        fetch('http://localhost:5000/wishlist', {
+        fetch('https://best-buy-server-three.vercel.app/wishlist', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

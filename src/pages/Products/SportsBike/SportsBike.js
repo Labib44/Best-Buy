@@ -14,7 +14,7 @@ const SportsBike = () => {
 
     // const { data:productsCollection=[] } = useQuery({
     //     queryKey: ['productsCollection'],
-    //     queryFn: () => fetch('http://localhost:5000/productsCollection')
+    //     queryFn: () => fetch('https://best-buy-server-three.vercel.app/productsCollection')
     //         .then(res => res.json())
     // })
 

@@ -29,7 +29,7 @@ const router=createBrowserRouter([
             {path:'/login',element:<Login></Login>},
             {path:'/signup',element:<SignUp></SignUp>},
             {path:'/sportsbike/:id',element:<SportsBike></SportsBike>,
-            loader:({params})=>fetch(`http://localhost:5000/productsCollection/${params.id}`)
+            loader:({params})=>fetch(`https://best-buy-server-three.vercel.app/productsCollection/${params.id}`)
         },
         ]
     },
@@ -47,7 +47,7 @@ const router=createBrowserRouter([
             
 
             {path:'/dashboard/payment/:id',element:<Payment></Payment>,
-            loader:({params})=>fetch(`http://localhost:5000/bookings/${params.id}`)
+            loader:({params})=>fetch(`https://best-buy-server-three.vercel.app/bookings/${params.id}`)
         },
         ]
     },

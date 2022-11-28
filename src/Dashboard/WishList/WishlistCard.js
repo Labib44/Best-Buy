@@ -1,10 +1,10 @@
 import React from 'react';
 
-const WishlistCard = ({wish}) => {
-    const {name}=wish;
+const WishlistCard = () => {
+    
     return (
         <div>
-            <h1>name:{name}</h1>
+            <h1>name:</h1>
         </div>
     );
 };

@@ -6,14 +6,14 @@ const AllUsers = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users');
+            const res = await fetch('https://best-buy-server-three.vercel.app/users');
             const data = await res.json();
             return data;
         }
     });
     // user delete
     const handleDelete = (_id) => {
-        fetch(`http://localhost:5000/users/${_id}`, {
+        fetch(`https://best-buy-server-three.vercel.app/users/${_id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -32,7 +32,7 @@ const AllUsers = () => {
 
     // Make admin
     const handleMakeAdmin = (_id) => {
-        fetch(`http://localhost:5000/users/admin/${_id}`, {
+        fetch(`https://best-buy-server-three.vercel.app/users/admin/${_id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

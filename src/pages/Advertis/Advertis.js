@@ -5,7 +5,7 @@ import AdvertisCard from './AdvertisCard';
 const Advertis = () => {
     const { data:advertis=[] } = useQuery({
         queryKey: ['advertis'],
-        queryFn: () => fetch('http://localhost:5000/advertis')
+        queryFn: () => fetch('https://best-buy-server-three.vercel.app/advertis')
             .then(res => res.json())
     });
     return (

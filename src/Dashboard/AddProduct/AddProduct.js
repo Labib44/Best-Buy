@@ -16,7 +16,7 @@ const AddProduct = () => {
     const { data: categorys, isLoading } = useQuery({
         queryKey: ['category'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/productCategory')
+            const res = await fetch('https://best-buy-server-three.vercel.app/productCategory')
             const data = await res.json();
             return data;
         }
@@ -54,7 +54,7 @@ const AddProduct = () => {
                     }
                     console.log('Add a product:--',product);
                     // save product data
-                    fetch('http://localhost:5000/products',{
+                    fetch('https://best-buy-server-three.vercel.app/products',{
                         method:'POST',
                         headers:{
                             'content-type':'application/json',
