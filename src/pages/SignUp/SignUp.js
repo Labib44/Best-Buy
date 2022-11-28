@@ -23,7 +23,7 @@ const SignUp = () => {
         // console.log(data);
         setSignUpError('');
 
-        createUser(data.email, data.password, data.option)
+        createUser(data.email, data.password, data.role)
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -32,7 +32,7 @@ const SignUp = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        saveUser(data.name, data.email, data.option);
+                        saveUser(data.name, data.email, data.role);
                      })
                     .catch(error => console.log(error));
 
@@ -45,8 +45,8 @@ const SignUp = () => {
             });
     }
     // save user in database.
-    const saveUser=(name, email,option)=>{
-        const user={name, email,option}
+    const saveUser=(name, email,role)=>{
+        const user={name, email,role}
         fetch('http://localhost:5000/users',{
             method:'POST',
             headers:{
@@ -63,7 +63,7 @@ const SignUp = () => {
     }
 
     return (
-        <div className='flex justify-center '>
+        <div className='flex justify-center m-20'>
             <div className='w-96'>
                 <h1 className='text-center text-2xl font-bold'>Sign Up</h1>
 
@@ -82,11 +82,12 @@ const SignUp = () => {
                         <input type="email" {...register("email", { required: 'Email is required' })} className="input input-primary input-bordered w-full" />
                         {errors.email && <p role="alert" className='text-red-600'>{errors.email?.message}</p>}
                     </div>
-                    <select name='option' className="select select-primary select-bordered w-full m-3" {...register("option", { required: 'Select is required' })}>
-                        <option disabled selected>Select your Option</option>
-                        <option value='buyer'>Buyer</option>
+                    <select name='role' className="select select-primary select-bordered w-full m-3" {...register("role", { required: 'Select is required' })}>
+                        <option selected value='buyer'>Buyer</option>
                         <option value='seller'>Seller</option>
+                        {/* role */}
                     </select>
+
 
                     <div className="form-control w-full m-3">
                         <label className="label">
@@ -99,8 +100,7 @@ const SignUp = () => {
                     <input type="submit" className='btn btn-primary w-full m-3' />
                     <p className='p-3'>Already have an account ?<Link to='/login' className='text-primary'>Login</Link></p>
                 </form>
-                <div className="divider">OR</div>
-                <button className="btn btn-outline w-full btn-primary m-3">Sign In with Google</button>
+                
             </div>
         </div>
     );

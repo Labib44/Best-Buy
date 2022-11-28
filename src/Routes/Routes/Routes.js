@@ -4,6 +4,7 @@ import AllUsers from "../../Dashboard/AllUsers/AllUsers";
 import Dashboard from "../../Dashboard/Dashboard/Dashboard";
 import MyBooking from "../../Dashboard/MyBooking/MyBooking";
 import Payment from "../../Dashboard/Payment/Payment";
+import WishList from "../../Dashboard/WishList/WishList";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import AddProducts from "../../pages/AddProducts/AddProducts";
@@ -16,6 +17,7 @@ import DisplayError from "../../pages/Shared/DisplayError/DisplayError";
 import SignUp from "../../pages/SignUp/SignUp";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import SellerRoute from "../SellerRoute/SellerRoute";
 
 const router=createBrowserRouter([
     {
@@ -37,8 +39,13 @@ const router=createBrowserRouter([
         children:[
             
             {path:'/dashboard/dashboard',element:<MyBooking></MyBooking>},
+            {path:'/dashboard/wishlist',element:<WishList></WishList>},
+
             {path:'/dashboard/users',element:<AdminRoute><AllUsers></AllUsers></AdminRoute>},
-            {path:'/dashboard/addproducts',element:<AdminRoute><AddProduct></AddProduct></AdminRoute>},
+
+            {path:'/dashboard/addproducts',element:<SellerRoute><AddProduct></AddProduct></SellerRoute>},
+            
+
             {path:'/dashboard/payment/:id',element:<Payment></Payment>,
             loader:({params})=>fetch(`http://localhost:5000/bookings/${params.id}`)
         },

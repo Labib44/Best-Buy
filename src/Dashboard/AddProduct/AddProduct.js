@@ -186,8 +186,6 @@ const AddProduct = () => {
                     </div>
 
                     <input type="submit" className='btn btn-primary w-full m-3' />
-
-                    picture
                 </form>
 
             </div>

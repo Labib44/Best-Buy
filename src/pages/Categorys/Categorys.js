@@ -8,7 +8,7 @@ const Categorys = () => {
         queryKey: ['categorysCollection'],
         queryFn: () => fetch('http://localhost:5000/categorysCollection')
             .then(res => res.json())
-    })
+    });
    
     return (
         <div>

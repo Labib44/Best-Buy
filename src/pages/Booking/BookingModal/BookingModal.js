@@ -66,7 +66,7 @@ const BookingModal = ({ bike, setBike }) => {
                         <input name='name' type="text" defaultValue={user?.displayName} placeholder="Full name" disabled className="input input-bordered input-success w-full " />
 
                         <input name='email' type="email" defaultValue={user?.email} placeholder="Email" disabled className="input input-bordered input-success w-full" />
-                        <button className="btn btn-active btn-primary w-full">Button</button>
+                        <button className="btn btn-active btn-primary w-full">Booked</button>
                     </form>
                 </div>
             </div>
