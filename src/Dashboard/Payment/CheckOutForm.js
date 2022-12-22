@@ -13,7 +13,7 @@ const CheckOutForm = ({ booking }) => {
 
     const stripe = useStripe();
     const elements = useElements();
-    const { price, name, email,_id } = booking;
+    const { price, name, email, _id } = booking;
     // console.log('check out ',price);
 
 
@@ -82,13 +82,13 @@ const CheckOutForm = ({ booking }) => {
             return;
         }
         if (paymentIntent.status === "succeeded") {
-            console.log('card info',card);
+            console.log('card info', card);
             // save payment info in the database.
             const payment = {
                 price,
-                transactionId:paymentIntent.id,
+                transactionId: paymentIntent.id,
                 email,
-                booking:_id
+                booking: _id
             }
 
             fetch('https://best-buy-server-three.vercel.app/payments', {

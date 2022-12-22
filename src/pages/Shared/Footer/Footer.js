@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer className=" footer p-10 bg-neutral text-neutral-content">
             <div>
-                <img className='w-44 h-40' src={logo} alt=""/>
+                <img className='w-44 h-40' src={logo} alt="" />
                 <p>Best Buy Ltd.<br />Copyright © 2022 - All right reserved by Best Buy Ltd</p>
             </div>
             <div>

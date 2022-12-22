@@ -5,7 +5,7 @@ import { AuthContext } from '../../Context/AuthProvider';
 const WishModal = ({ wish, setWish }) => {
     const { user } = useContext(AuthContext);
     const { name, price, picture, location, usedTime, phnNum } = wish;
-    
+
 
     const handlewish = (event) => {
         event.preventDefault();
@@ -29,17 +29,17 @@ const WishModal = ({ wish, setWish }) => {
             },
             body: JSON.stringify(wishlist)
         })
-        .then(res => res.json())
+            .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if(data.acknowledged){
+                if (data.acknowledged) {
                     setWish(null);
                     toast.success('Wish Confirmed');
                 }
-                
+
             })
 
-        
+
         // console.log('wish List', wishlist);
     }
 

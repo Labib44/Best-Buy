@@ -6,24 +6,24 @@ import { AuthContext } from '../../Context/AuthProvider';
 
 const WishList = () => {
 
-    const {user}=useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
-    const url=`https://best-buy-server-three.vercel.app/wishlist?email=${user?.email}`;
+    const url = `https://best-buy-server-three.vercel.app/wishlist?email=${user?.email}`;
 
-    const {data:wishlist=[], refetch}=useQuery({
-        queryKey:['wishlist', user?.email],
-        queryFn:async()=>{
-            const res=await fetch(url,{
-                headers:{
-                    authorization:`bearer ${localStorage.getItem('accessToken')}`
+    const { data: wishlist = [], refetch } = useQuery({
+        queryKey: ['wishlist', user?.email],
+        queryFn: async () => {
+            const res = await fetch(url, {
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
             });
-            const data=await res.json();
+            const data = await res.json();
             return data;
         }
     })
 
-// delete wish list
+    // delete wish list
     const handleDelete = (_id) => {
         fetch(`https://best-buy-server-three.vercel.app/wishlist/${_id}`, {
             method: 'DELETE',
@@ -34,11 +34,11 @@ const WishList = () => {
             .then(res => res.json())
             .then(data => {
                 // console.log('delete', data);
-                if(data.deletedCount > 0){
+                if (data.deletedCount > 0) {
                     refetch();
                     toast.success('Delete Successfull')
                 }
-                
+
             })
     }
 
@@ -67,7 +67,7 @@ const WishList = () => {
                                 <th>
                                     <div className="avatar">
                                         <div className="w-24 rounded">
-                                            <img src={wish.picture} alt=""/>
+                                            <img src={wish.picture} alt="" />
                                         </div>
                                     </div>
                                 </th>
@@ -76,13 +76,13 @@ const WishList = () => {
 
                                 <td>{wish?.role !== 'admin' && <button onClick={() => handleDelete(wish._id)} className='btn btn-xs btn-ghost'>Delete</button>}</td>
                                 <td>
-                            {
-                               wish.price && !wish.paid && <Link to={`/dashboard/payment/${wish._id}`}><button className="btn btn-primary btn-xs">Pay</button></Link> 
-                            }
-                            {
-                                wish.price && wish.paid && <span className='text-green-500 font-bold'>Paid</span>
-                            }
-                        </td>
+                                    {
+                                        wish.price && !wish.paid && <Link to={`/dashboard/payment/${wish._id}`}><button className="btn btn-primary btn-xs">Pay</button></Link>
+                                    }
+                                    {
+                                        wish.price && wish.paid && <span className='text-green-500 font-bold'>Paid</span>
+                                    }
+                                </td>
                             </tr>)
                         }
                     </tbody>

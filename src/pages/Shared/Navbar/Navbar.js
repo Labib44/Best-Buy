@@ -24,11 +24,10 @@ const Navbar = () => {
             </>
             :
             <li><Link className='btn btn-ghost' to='/login'>Login</Link></li>
-            
+
         }
     </>
 
-  
 
     return (
         <div className="navbar bg-base-100 flex justify-between">
